@@ -59,7 +59,32 @@ public:
 	}
 	bool BinarySearch(T item, int& loc)
 	{
-		return false;
+		loc = -1;
+		int mid;
+		int first = 0;
+		int last = list.size() - 1;
+		bool found = false;
+
+		while (first <= last && !found)
+		{
+			mid = (first + last) / 2;
+
+			if (list[mid] == item)
+			{
+				found = true;
+				loc = mid;
+			}
+			else if (list[mid] > item) 
+			{
+				last = mid - 1;
+			}
+			else
+			{
+				first = mid + 1;
+			}
+		}
+
+		return found;
 	}
 
 };
